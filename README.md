@@ -1,2 +1,2 @@
 # RPS
-Rock, Paper, Scissors game
+Rock, Paper, Scissors game. Made to practice some programming with JS
