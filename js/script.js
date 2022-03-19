@@ -1,6 +1,7 @@
 console.log(`Welcome to the RPS game!`);
 
-// the game asks the user for the input: either a "Rock", "Paper" or "Scissors" move
+// the game asks the user for the input: either a "Rock", "Paper" or "Scissors" 
+// move
 // the input is stored in the string variable "userMove"
 // the game then makes it's own turn, randomly chooses a play and
 // stors it in the string variable "gameMove"
@@ -17,26 +18,36 @@ function computerPlay() {
     return possibleGameMoves[ Math.floor(3*Math.random()) ]; 
 }
 
+
+
 function playerSelection() {
-    return prompt(`what is your move? (hint: it's rock, paper or scissors)`).toLowerCase();
+    return prompt(`what is your move? (hint: it's rock, ` + 
+        `paper or scissors)`).toLowerCase();
 }
+
+
+
 
 function gameRound(playerSelection, computerSelection) {
 
     if (playerSelection == computerSelection) {
-        return [0, `That's a tie! Your move is ${playerSelection} and the game chose ${computerSelection}`] ;
+        return [0, `That's a tie! Your move is ${playerSelection} and the ` + 
+            `game chose ${computerSelection}`] ;
     } else {
         if (playerSelection == `rock` && computerSelection == `paper` ||
             playerSelection == `paper` && computerSelection == `scissors` || 
             playerSelection == `scissors` && computerSelection == `rock`) {
-            // win = false;
-            return [1, `That's a lose! Your move is ${playerSelection} and the game chose ${computerSelection}`] ;
+            return [1, `That's a lose! Your move is ${playerSelection} and ` + 
+                `the game chose ${computerSelection}`] ;
         } else {
-            return [2, `That's a Win! Your move is ${playerSelection} and the game chose ${computerSelection}` ];
+            return [2, `That's a Win! Your move is ${playerSelection} and ` + 
+                `the game chose ${computerSelection}` ];
         }
     }
 
 }
+
+
 
 
 function game(numberOfRounds) {
@@ -65,4 +76,6 @@ function game(numberOfRounds) {
 
 }
 
+
+// the game will be played for 3 rounds before the total scoring
 game(3);
