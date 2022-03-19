@@ -26,7 +26,11 @@ function playerSelection() {
 }
 
 
-
+// game round function, takes user move and computer move in the
+// current round as input. The output is an array, first item is 0, 1 or 2 - 
+// depending on if the outcome is a tie (0), user loss (1) or user win (2)
+// and the second item is a string of the corresponding "tie", "lose" or "win"
+// message, which will be displayed at the rounds resolution
 
 function gameRound(playerSelection, computerSelection) {
 
@@ -48,7 +52,12 @@ function gameRound(playerSelection, computerSelection) {
 }
 
 
-
+// main game function. Takes the number of turns as an input
+//  It will call the gameRound function and keep
+//score each round adding to the user score if the user won or to the 
+//computer score if the compuer won. In case of a tie neither score 
+//is updated. In the end of play the final WIN or LOSE condition
+//is decided depending on the total of scores
 
 function game(numberOfRounds) {
 
