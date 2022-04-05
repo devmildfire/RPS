@@ -1,5 +1,13 @@
 console.log(`Welcome to the RPS game!`);
 
+const Rock = document.getElementById("rockDiv");
+const Paper = document.getElementById("paperDiv");
+const Scissors = document.getElementById("scissorsDiv");
+const info = document.getElementById("infoDiv");
+
+var userScore = 0;
+var computerScore = 0;
+
 // the game asks the user for the input: either a "Rock", "Paper" or "Scissors" 
 // move
 // the input is stored in the string variable "userMove"
@@ -11,7 +19,17 @@ console.log(`Welcome to the RPS game!`);
 // if the moves are not identical, the game takes users move and 
 // decides wheather it is a win or a lose depending on the game move
 
+Rock.addEventListener("click", () => {
+    game(`rock`);
+});
 
+Paper.addEventListener("click", () => {
+    game(`paper`);
+});
+
+Scissors.addEventListener("click", () => {
+    game(`scissors`);
+});
 
 function computerPlay() {
     const possibleGameMoves = [`rock`, `paper`, `scissors`];
@@ -59,32 +77,33 @@ function gameRound(playerSelection, computerSelection) {
 //is updated. In the end of play the final WIN or LOSE condition
 //is decided depending on the total of scores
 
-function game(numberOfRounds) {
+function game(playerSelection) {
 
-    var userScore = 0;
-    var computerScore = 0;
+    // for (let i = 0; i < numberOfRounds; i++) 
     
+    // {
 
-    for (let i = 0; i < numberOfRounds; i++) {
         
-        let [status, message]  = gameRound( playerSelection(), computerPlay() ); 
+        let [status, message]  = gameRound( playerSelection, computerPlay() ); 
       
 
         if (status == 1) {
             computerScore += 1;
         } else if (status == 2) {
             userScore += 1;
-        }
+        };
         
-        alert( message );
+        // alert( message );
+        info.innerHTML = message + `<br>`; 
+        info.innerHTML += `your score is ${userScore} and computer score is ${computerScore}. 
+        You ${userScore < computerScore ? `lose` : `WIN` }` ; 
 
-    }
+    // }
 
-    alert( `your score is ${userScore} and computer score is ${computerScore}. 
-    You ${userScore < computerScore ? `lose` : `WIN` }`  );
+    // alert(  );
 
 }
 
 
 // the game will be played for 3 rounds before the total scoring
-game(3);
+// game(3);
