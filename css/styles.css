@@ -8,7 +8,7 @@ body {
 
 div {
     /* flex: auto; */
-    border: 1px solid black;
+    /* border: 1px solid black; */
     max-height: 100px;
 }
 
@@ -16,7 +16,7 @@ div {
     display: flex;
 }
 
-#buttonsDiv >*, #infoDiv {
+#buttonsDiv >*, #infoDiv, #playAgainDiv {
     /* flex: auto; */
     padding: 20px;
 }
@@ -27,7 +27,7 @@ div {
     text-align: center;
 }
 
-#buttonsDiv >* {
+#buttonsDiv >*, #playAgainDiv {
     margin: 20px;
     background-color: black;
     color: burlywood;
