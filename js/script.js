@@ -1,8 +1,8 @@
-console.log(`Welcome to the RPS game!`);
-
 const info = document.getElementById("infoDiv");
 const buttons = document.getElementById("buttonsDiv");
 
+//create 4 div elements which shall be used as buttons:
+//PlayAgain, Rock, Paper and Scissors
 
 const PlayAgain = document.createElement('div');
 PlayAgain.setAttribute('id','playAgainDiv');
@@ -24,11 +24,19 @@ Scissors.setAttribute('id','scissorsDiv');
 Scissors.classList.add('unselectable');
 Scissors.innerHTML = `Scissors`;
 
+
+//create a function which will add our play buttons to the parent div
+//at the start of he game
+
 function createButtons(parent_element) {
     parent_element.appendChild(Rock);
     parent_element.appendChild(Paper);
     parent_element.appendChild(Scissors);
 };
+
+
+//create a function which will remove our play buttons from the parent div
+//when the game is over
 
 function removeButtons(parent_element) {
     parent_element.removeChild(Rock);
@@ -43,16 +51,17 @@ var computerScore = 0;
 const totalRounds = 5;
 var currentRound = 1;
 
-// the game asks the user for the input: either a "Rock", "Paper" or "Scissors" 
-// move
-// the input is stored in the string variable "userMove"
-// the game then makes it's own turn, randomly chooses a play and
-// stors it in the string variable "gameMove"
-// when the game has both moves, it compares them
-// if the moves are identical, i.e. both are "paper" the
-// game creates a tie output 
-// if the moves are not identical, the game takes users move and 
-// decides wheather it is a win or a lose depending on the game move
+// the user can make his choice: either a "Rock", "Paper" or "Scissors" 
+// by clicking on one of three butons. EventListener functions above
+// call the Game function, which in turn calls gameRound function.
+// gameRound function takes the input of a player, and a random input 
+// of a function computerPlay to return the current round results: the oucome in
+// the form of a number (from 0 to 2) and a text message to display.
+// after that the Game function updates the global variables which track the 
+// overall game progress - current round number and scores of both player and computer
+// on the last round the total score is tallied and the end game resut is presented
+// at this stage the 3 buttons are removed and a PlayAgain buton appears
+
 
 PlayAgain.addEventListener("click", () => {
     createButtons(buttons);
@@ -105,14 +114,6 @@ function gameRound(playerSelection, computerSelection) {
     };
 
 };
-
-
-// main game function. Takes the number of turns as an input
-//  It will call the gameRound function and keep
-//score each round adding to the user score if the user won or to the 
-//computer score if the compuer won. In case of a tie neither score 
-//is updated. In the end of play the final WIN or LOSE condition
-//is decided depending on the total of scores
 
 function game(playerSelection, round) {
 
