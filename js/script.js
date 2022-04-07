@@ -131,9 +131,11 @@ function game(playerSelection, round) {
         info.innerHTML +=   `your score is ${userScore} and 
                             computer score is ${computerScore}.`; 
 
-        if (round === totalRounds) {
-            info.innerHTML +=   `<br> <span style="font-size: 30pt">You ${userScore < computerScore ?
-                                `lose` : `WIN` } <span>`;
+        if (round != totalRounds) {
+           info.innerHTML += `<br> <br> choose your next play!`;
+        } else {
+            info.innerHTML +=   `<br><br> <span style="font-size: 30pt">You 
+                                ${userScore < computerScore ? `lose` : `WIN` } <span>`;
             removeButtons(buttons);
             buttons.appendChild(PlayAgain);
 
