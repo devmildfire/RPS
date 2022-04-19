@@ -8,29 +8,38 @@ body {
 
 div {
     /* flex: auto; */
+    border: none;
     /* border: 1px solid black; */
-    max-height: 100px;
-}
+    /* max-height: 100px; */
+ }
 
 #buttonsDiv {
     display: flex;
 }
 
-#buttonsDiv >*, #infoDiv, #playAgainDiv {
-    /* flex: auto; */
+/* #buttonsDiv >*, #infoDiv, #playAgainDiv {
+    flex: auto;
     padding: 20px;
-}
+} */
 
 #infoDiv {
     justify-content: center;
     align-content: center;
     text-align: center;
+    max-height: 200px;
 }
 
 #buttonsDiv >*, #playAgainDiv {
-    margin: 20px;
-    background-color: black;
-    color: burlywood;
+    margin: 10px;
+    /* background-color: black; */
+    color: rebeccapurple;
+    /* align-items: center; */
+    /* display: flex; */
+    padding: 10px;
+    width: 120px;
+    max-height: 50px;
+    /* height: 58px; */
+    /* align-items: center; */
 }
 
 
@@ -42,4 +51,19 @@ div {
     -ms-user-select: none;
     user-select: none;
 }
+
+svg {
+    position: relative;
+    display: block; 
+    margin: 0 auto;
+    /* border: 1px solid red; */
+}
+
+/* #svgDiv, #Scissors {
+    display: flex;
+    padding: 0;
+    width: 100px;
+    height: 58px;
+    align-items: center;
+} */
 
