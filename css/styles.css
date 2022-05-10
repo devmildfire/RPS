@@ -8,8 +8,8 @@ body {
 
 div {
     /* flex: auto; */
-    border: none;
-    /* border: 1px solid black; */
+    /* border: none; */
+    border: 1px solid black;
     /* max-height: 100px; */
  }
 
@@ -54,9 +54,9 @@ div {
 
 svg {
     position: relative;
-    display: block; 
+    display:inline-block; 
     margin: 0 auto;
-    /* border: 1px solid red; */
+    border: 1px solid red;
 }
 
 /* #svgDiv, #Scissors {
