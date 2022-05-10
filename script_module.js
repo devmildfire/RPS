@@ -252,6 +252,8 @@ function createOpeningAnimation (parent, targets, circle, circlePath, text, dt, 
     const startDy = parent.offsetTop- body.clientHeight/2; 
     const Yextra = Math.tan(Math.PI / 6)*(winWidth/2 + parent.offsetLeft);
 
+    // gsap.set(playButton, {  attr: {'pointer-events':'auto' } } );
+
     const openingAnimation = gsap.timeline({ defaults: { duration: dt, xPercent:-50, yPercent: -50 }, paused: false} )
     openingAnimation.fromTo( circle,        {x: winWidth/2, y: winHeight/2 - startDy, opacity: 0},
                                             {opacity: 1, scale: 1}, 0 )
@@ -296,6 +298,7 @@ function createOpeningAnimation (parent, targets, circle, circlePath, text, dt, 
                                     } , dt*4   )
                     .fromTo( text,  {x: winWidth/2, y: winHeight/2 - startDy, scale: 0.1},
                                     {opacity: 1, duration:0.5, scale: 1}, dt*5)
+                    // .set(playButton, {xPercent:0, yPercent: 0, attr: { 'pointer-events':'auto'} } )
 
     return openingAnimation;
 };
@@ -389,19 +392,18 @@ function gameOver(winner) {
 
     const gameOverAnimation = gsap.timeline({ defaults: { duration: 1, ease: 'none' }, paused: false} );
     gameOverAnimation.to(allSVGs, {opacity: 0}, 0)
-                    .to(svgs, {attr: { 'pointer-events':'none'  } })
+                    .set(svgs, {attr: { 'pointer-events':'none'  } })
+                    .set(playButton, {attr: { 'pointer-events':'none'} } )
                     .add( ()=>{changePBtext(gameOverText)} , "+=0")
                     .to(svgText, {opacity: 1, scale: 2})
                     .to(svgText, {opacity: 1, scale: 1.9})
                     .to(svgText, {opacity: 1, scale: 1.9, duration: 3})
                     .to(svgText, {opacity: 0, scale: 0})
                     .add(  ()=>{changePBtext(playAgainText)}, "+=0")
-                    .add(openingAnimationStart, "+=0");
+                    .add(openingAnimationStart, "+=0")
+                    .set(playButton, {  attr: {'pointer-events':'auto' } } );
     deletePlayEvents();  
 
-    // const playText = document.getElementById('svgTextText');
-    
-    // changePBtext (playAgainText); 
     
 
 };
@@ -417,11 +419,11 @@ function openingAnimationStart() {
 function updateScore() {
     cpuSvgScoreText.innerHTML = 'cpu score: ' + `${gameState.cpuScore}`;
     playerSvgScoreText.innerHTML = 'player score: ' + `${gameState.playerScore}`;
-    if (gameState.cpuScore == 5) {
+    if (gameState.cpuScore == 1) {
         gameOver('cpu');
     };
 
-    if (gameState.playerScore == 5) {
+    if (gameState.playerScore == 1) {
         gameOver('player');
     };
 };
