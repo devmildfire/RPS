@@ -10,6 +10,8 @@ let battleDiv;
 
 let allSVGs;
 
+const scoreToWin = 5;
+
 const dt = 0.3;
 const lapTime = dt*70;
 
@@ -419,11 +421,11 @@ function openingAnimationStart() {
 function updateScore() {
     cpuSvgScoreText.innerHTML = 'cpu score: ' + `${gameState.cpuScore}`;
     playerSvgScoreText.innerHTML = 'player score: ' + `${gameState.playerScore}`;
-    if (gameState.cpuScore == 1) {
+    if (gameState.cpuScore == scoreToWin) {
         gameOver('cpu');
     };
 
-    if (gameState.playerScore == 1) {
+    if (gameState.playerScore == scoreToWin) {
         gameOver('player');
     };
 };
