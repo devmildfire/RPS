@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Water+Brush&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+
+
+*, html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    justify-content: space-evenly;
+}
+
+svg {
+    /* border: 1px solid black; */
+    position: absolute;
+    box-sizing: border-box;
+}
+
+#svgTextText {
+    font-family: 'Water Brush';
+    font-size: 30pt;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+
+}
+
+#contDiv, #cpuDiv, #battleDiv {
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+    position:relative;
+    display: block;
+    margin: auto;
+    font-family: 'Squada One';
+    font-size: 30pt;
+
+}
